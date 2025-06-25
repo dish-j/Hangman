@@ -96,7 +96,7 @@ const fallbackWords = [
  */
 async function fetchRandomWord() {
     // The URL where your Flask backend (app.py) should be running
-    const apiUrl = 'http://127.0.0.1:5000/api/random_word';
+    const apiUrl = 'https://hangman-0zn1.onrender.com/api/random_word';
     try {
         console.log(`Attempting to fetch word from: ${apiUrl}`);
         const response = await fetch(apiUrl); // Make HTTP request to Flask API
