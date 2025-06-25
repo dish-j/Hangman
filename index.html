@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    
+    <!-- Load Tailwind CSS for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Font Awesome for icons (e.g., for play button) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Link to your custom CSS file for specific styling -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Removed Firebase SDK imports -->
+</head>
+<!-- Body background with gradient baby pink to dark -->
+<body class="bg-gradient-to-r from-pink-300 via-stone-950 to-stone-900 min-h-screen flex items-center justify-center p-4 font-inter">
+    <div class="game-wrapper flex flex-col items-center justify-center w-full max-w-lg">
+
+        <!-- Main Game Container -->
+        <!-- Background changed to dark gray, similar to the body's dark sections -->
+        <div class="game-container bg-gray-900 p-8 rounded-xl shadow-2xl border border-gray-700 w-full text-center text-white relative flex flex-col justify-between" style="min-height: 600px;">
+            <div>
+                <!-- Game Title - Baby Pink -->
+                <h1 class="text-5xl font-extrabold mb-6 text-pink-300 drop-shadow-lg">Hangman</h1>
+
+                <!-- Hangman Display Area - Background dark gray, text baby pink -->
+                <div class="hangman-display mb-8 p-4 bg-gray-800 rounded-lg border border-gray-600">
+                    <pre id="hangman-figure" class="text-left text-sm font-mono text-pink-300"></pre>
+                </div>
+
+                <!-- Word Display - Cream White text -->
+                <div id="word-display" class="text-6xl font-bold tracking-widest mb-8 text-white bg-gray-800 p-4 rounded-lg border border-gray-600">
+                    <!-- Word dashes will be displayed here by JavaScript -->
+                </div>
+
+                <!-- Lives Left Message - Red text -->
+                <p id="lives-message" class="text-xl mb-6 font-semibold text-red-400"></p>
+
+                <!-- Display for Guessed Letters - Label baby pink, letters cream white -->
+                <div class="mb-6">
+                    <span class="text-lg font-medium text-pink-300">Guessed Letters: </span>
+                    <span id="guessed-letters" class="text-2xl font-bold text-white"></span>
+                </div>
+            </div>
+
+            <!-- Input field and Guess Button -->
+            <div class="input-area flex flex-col sm:flex-row gap-4 items-center justify-center mb-6 mt-auto">
+                <!-- Input text cream white, placeholder handled by custom CSS -->
+                <input type="text" id="guess-input" maxlength="1" class="w-full sm:w-32 p-3 text-2xl text-center rounded-lg bg-gray-900 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-pink-500 text-white uppercase" placeholder="Enter a letter">
+                <button id="guess-button" class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95 w-full sm:w-auto">
+                    <i class="fas fa-paper-plane mr-2"></i>Guess
+                </button>
+            </div>
+
+            <!-- Game Message Area - Base text baby pink (dynamic colors override for success/fail) -->
+            <p id="game-message" class="text-3xl font-bold mt-6 text-pink-300"></p>
+
+            <!-- Play Again Button -->
+            <button id="play-again-button" class="btn bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition-transform transform hover:scale-105 active:scale-95 mt-8 hidden">
+                <i class="fas fa-redo mr-2"></i>Play Again
+            </button>
+        </div>
+    </div>
+
+    <!-- Link to your main JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

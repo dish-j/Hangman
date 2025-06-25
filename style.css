@@ -1,0 +1,87 @@
+/* Custom CSS for the Hangman Game */
+
+/* Import Inter font from Google Fonts for a modern, clean look */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* Apply Inter font family to the entire body and ensure no horizontal scrolling */
+body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevents unintended horizontal scrollbars */
+}
+
+/* Base styles for all interactive buttons */
+.btn {
+    /* Smooth transitions for background color, transform (for hover/active), and shadow */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    border: none; /* No default border */
+    cursor: pointer; /* Indicate clickable element */
+    /* Subtle text shadow for better readability on darker backgrounds */
+    text-shadow: 1px 1px 2px rgba(218, 185, 208, 0.3);
+}
+
+/* Hover effects for buttons: subtle lift and shadow */
+.btn:hover {
+    box-shadow: 0 6px 12px rgba(230, 186, 214, 0.3); /* Larger shadow on hover */
+}
+
+/* Active (clicked) effects for buttons: slight press down and reduced shadow */
+.btn:active {
+    transform: scale(0.98); /* Slightly shrink button when clicked */
+    box-shadow: 0 2px 4px rgba(225, 175, 210, 0.2); /* Smaller shadow when active */
+}
+
+/* Specific styles for input fields when they are focused */
+input:focus {
+    border-color: #f472b6; /* Tailwind pink-400 for border color */
+    /* Custom ring effect using box-shadow for a clean focus indicator */
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.5); /* Tailwind pink-400 with transparency */
+}
+
+/* Custom placeholder color for input field */
+#guess-input::placeholder {
+    color: #fbcfe8; /* Lighter pink for placeholder text (Tailwind pink-100) */
+    opacity: 0.8; /* Ensure it's visible */
+}
+
+
+/* Flexbox for the main game wrapper to center content */
+.game-wrapper {
+    display: flex;
+    flex-direction: column; /* Always stack vertically as there's only one main container now */
+    gap: 2rem; /* Space between elements, though less relevant with single main container */
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+}
+
+/* General container styling - removed high-score-container specific styles */
+.game-container {
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    min-height: 500px; /* Ensures a minimum height for visual balance */
+}
+
+/* Adjustments for smaller mobile screens */
+@media (max-width: 640px) { /* Applies when viewport width is 640px or less (Tailwind's 'sm' breakpoint) */
+    .game-container {
+        padding: 1.5rem; /* Reduce padding for tighter fit on small screens */
+        width: 100%; /* Make container take full width */
+        max-width: none; /* Remove any maximum width restrictions */
+    }
+    .text-6xl {
+        font-size: 3.5rem; /* Adjust large text for readability on small screens */
+    }
+    .text-5xl {
+        font-size: 3rem; /* Adjust title font size */
+    }
+    .text-3xl {
+        font-size: 1.75rem; /* Adjust message font size */
+    }
+    .input-area {
+        flex-direction: column; /* Stack input and button vertically in the input area */
+    }
+    #guess-input {
+        width: 100%; /* Input takes full width */
+    }
+    .btn {
+        width: 100%; /* Buttons take full width */
+    }
+}
